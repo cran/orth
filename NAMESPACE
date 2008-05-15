@@ -1,0 +1,11 @@
+.onLoad <- function(lib, pkg)
+{
+  require(methods)
+}
+
+import("stats")
+
+export("orth", "diag.cls", "diag.obs")
+exportClasses("orth", "summary.orth", "cluster.diag.orth", "obsvnl.diag.orth")
+exportMethods("show", "summary", "formula", "update", "df.bet", "df.alp",
+              "lev.bet", "lev.alp", "cook.robust", "cook.naive")
