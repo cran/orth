@@ -1,7 +1,7 @@
 `orth` <-
 function(formula, data, weights, formula.z, dataz, id, contrasts=NULL,
                  alp.start=NULL, bet.start=NULL, lambda0=0,
-                 maxiter=20, tol=1e-6, estLam=FALSE, monitor=FALSE,...)
+                 maxiter=20, tol=1e-6, estLam=FALSE, monitor=FALSE)
 {
 
   if (missing(formula))   { stop("You need to provide a model formula for the mean.")        }

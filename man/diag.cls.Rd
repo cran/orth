@@ -15,9 +15,6 @@ diag.cls(object)
   \item{object}{ An object of class "orth" }
 }
 
-\details{
-
-}
 
 \value{
   The function returns an object of class "cluster.diag.orth".

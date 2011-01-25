@@ -15,9 +15,7 @@ diag.obs(object)
 \arguments{
   \item{object}{ An object of class "orth" }
 }
-\details{
 
-}
 \value{
   The function returns an object of class "obsvnl.diag.orth".
 }

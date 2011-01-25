@@ -11,8 +11,8 @@
 
 \usage{
 orth(formula, data, weights , formula.z, dataz, id, contrasts = NULL, 
-     alp.start = NULL, bet.start = NULL, lambda0 = 0, maxiter = 20, tol = 1e-06, 
-     estLam = FALSE, monitor = FALSE, ...)
+     alp.start = NULL, bet.start = NULL, lambda0 = 0, maxiter = 20,
+     tol = 1e-06, estLam = FALSE, monitor = FALSE)
 }
 
 \arguments{
@@ -30,7 +30,6 @@ orth(formula, data, weights , formula.z, dataz, id, contrasts = NULL,
   \item{tol}{ Size of precision }
   \item{estLam}{ logical: 1 if we want to estimate lambda and 0 if no }
   \item{monitor}{ logical: 1 if we want to monitor the progress of the estimation }
-  \item{\dots}{  }
 }
 
 \details{If \code{estLam = FALSE} then \code{lambda} is set to 0 and  
@@ -117,8 +116,8 @@ z.6city <- data.frame(z.6city)
 names(z.6city) <- c("id", "agediff", "smoke")
 z.6city <- z.6city[(z.6city$id != 0), ]
 
-orth1 =  orth(y~age+smoke,data=six.city, weights=count, formula.z=~agediff + smoke, dataz=z.6city, 
-              id=id, maxiter=20, tol=0.001, estLam=TRUE)
+orth1 =  orth(y~age+smoke,data=six.city, weights=count, formula.z=~agediff + smoke,
+              dataz=z.6city, id=id, maxiter=20, tol=0.001, estLam=TRUE)
 orth1
               
 o1.s <- summary(orth1)
@@ -210,8 +209,9 @@ names(z.ui) <- c("PracticeID", "sameMD")
 z.ui <- z.ui[(z.ui$PracticeID != 0),]
 z.ui$sameMD <- as.factor(z.ui$sameMD)
 
-orth3 = orth(bothered~factor(female)+age+toilet+toilet2+severe+dayacc+dayacc2,data = ui,
-             formula.z=~-1 + sameMD, dataz=z.ui, id=pract_id, maxiter=55, tol=0.001, estLam=TRUE)
+orth3 = orth(bothered~factor(female)+age+toilet+toilet2+severe+dayacc+dayacc2,
+             data = ui, formula.z=~-1 + sameMD, dataz=z.ui, id=pract_id,
+             maxiter=55, tol=0.001, estLam=TRUE)
 
 
 ## This data contains several clusters with huge cluster size.  So observation
@@ -253,8 +253,9 @@ for(i in 1:length(n) )
 
 z.coalminer <- data.frame( id = as.vector(unique(coalminer$id) ), age=age.i )
 
-orth4 = orth(y~-1 + factor(wheeze) + factor(wheeze):ageCntrd, data=coalminer, weights=count,
-             formula.z = ~age, dataz=z.coalminer, id=id, maxiter=10, tol=0.001, estLam=FALSE)
+orth4 = orth(y~-1 + factor(wheeze) + factor(wheeze):ageCntrd, data=coalminer,
+             weights=count, formula.z = ~age, dataz=z.coalminer, id=id,
+             maxiter=10, tol=0.001, estLam=FALSE)
              
 ## Looks at estimates and standard errors based on robust covariance
 summary(orth4)
